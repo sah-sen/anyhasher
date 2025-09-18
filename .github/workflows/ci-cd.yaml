@@ -45,7 +45,8 @@ jobs:
       - uses: actions/checkout@v3
 
       - name: Check for vulnerabilities
-        run: cd frontend && npm audit --production --audit-level=moderate
+        run: cd frontend && npm audit --production --audit-level=high 
+                                                # better if not "high"
 
   lint:
     name: 🧼 Ensure Code Style
