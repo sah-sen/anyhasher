@@ -19,6 +19,9 @@ jobs:
         with:
           node-version: 16.x
     
+      - name: Install Apps
+        run: cd backend && npm i
+
       - name: Build
         run: cd backend && npm run build
 
