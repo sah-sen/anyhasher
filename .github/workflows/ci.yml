@@ -82,10 +82,10 @@ jobs:
     permissions:
       security-events: write
     steps: 
-      - uses: actions/checkout @v1
+      - uses: actions/checkout@v1
 
       - name: Initialize CodeQL
-        uses: github/codeql-action/init@v1
+        uses: github/codeql-action/init@v2
         with:
           languages: javascript
 
@@ -101,7 +101,7 @@ jobs:
         run: cd backend && npm run build
 
       - name: Perform Analysis
-        uses: github/codeql-action/analyze@v1
+        uses: github/codeql-action/analyze@v2
         
   security-audit:
     needs: [Compile]
