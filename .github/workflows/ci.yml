@@ -56,7 +56,7 @@ jobs:
           run: cd backend && npm run lint
 
   test:
-      needs: [build] 
+      needs: [Compile] 
       runs-on: ubuntu-latest
       steps:
         - name: Checkout
@@ -75,5 +75,5 @@ jobs:
 
         - name: Run unit tests
           run: cd backend && npm t
-          
+
         
