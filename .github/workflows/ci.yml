@@ -34,4 +34,24 @@ jobs:
           name: backend-artifact
           path: backend/build/artifact.zip
 
-    
+  lint:
+      needs: [Compile]
+      runs-on: ubuntu-latest
+      steps:
+        - name: Checkout
+          uses: actions/checkout@v1
+          
+        - name: Cache Node Modules
+          id: cache
+          uses: actions/cache@v4
+          with:
+           path: node_modules
+           key: node_modules-cache
+        
+        - name: Install Apps
+          if: steps.cache.outputs.cache-hit != 'true'
+          run: cd backend && npm i
+
+        - name: Lint the code
+          run: cd backend && npm run lint
+        
